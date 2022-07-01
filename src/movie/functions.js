@@ -18,21 +18,22 @@ exports.listMovies = async () => {
   }
 };
 
-exports.deleteMovie = async(movieObj) => {
-    try{
+exports.deleteMovie = async (movieObj) => {
+  try {
     const deleted = await Movie.destroy({
-        where: movieObj});
-}catch (error){
+      where: movieObj,
+    });
+  } catch (error) {
     console.log(error);
-}
+  }
 };
 
-exports.updateMovie = async(movieObj) => {
-    try{
-        const updated = await Movie.update({movieObj},{
-            where: movieObj
-        });
-    }catch(error){
-        console.log(error);
-    }
-}
+exports.updateMovie = async (updateObj, movieObj) => {
+  try {
+    const updated = await Movie.update(updateObj, {
+      where: movieObj,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
